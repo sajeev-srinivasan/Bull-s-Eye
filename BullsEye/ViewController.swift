@@ -12,10 +12,12 @@ class ViewController: UIViewController {
     var currentValue = 0
     var target = 0
     var score = 0
+    var roundNumber = 0
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var roundNumberLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,37 @@ class ViewController: UIViewController {
     @IBAction func showAlert() {
         
         let difference = abs(target - currentValue)
-        let points = 100 - difference
-        let message = "The points scored is \(points)"
-        let alert = UIAlertController(title: "Bull's Eye", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+        var points = 100 - difference
         
         score += points
+        
+        var title: String
+        
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        }
+        
+        else if difference < 5 {
+            title = "Almost had it"
+            
+            if difference == 1 {
+                points += 50
+            }
+        }
+        
+        else if difference < 10 {
+            title = "Pretty good"
+        }
+        
+        else {
+            title = "Not even close.."
+        }
+        
+        let message = "The points scored is \(points)"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         startNewRound()
@@ -44,6 +71,7 @@ class ViewController: UIViewController {
     }
     
     func startNewRound(){
+        roundNumber += 1
         target = Int.random(in: 1...100)
         currentValue = 50
         slider.value = Float(currentValue)
@@ -53,5 +81,6 @@ class ViewController: UIViewController {
     func updateLabels(){
         targetLabel.text = String(target)
         scoreLabel.text = String(score)
+        roundNumberLabel.text = String(roundNumber)
     }
 }
