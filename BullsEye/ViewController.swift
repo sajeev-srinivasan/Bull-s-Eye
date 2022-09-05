@@ -21,10 +21,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = slider.value.rounded()
-        currentValue = Int(value)
         startNewGame()
-    }
+        
+        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")
+        slider.setThumbImage(thumbImageNormal, for: .normal)
+        
+        let thumbImageHighlighted = UIImage(named: "SliderThumb-Highlight")
+        slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        
+        let trackLeftImage = UIImage(named: "SliderTackLeft")
+        let trackLeftResizable = trackLeftImage?.resizableImage(withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        
+        let trackRightImage = UIImage(named: "SliderTackRight")
+        let trackRightResizable = trackRightImage?.resizableImage(withCapInsets: insets)
+        slider.setMaximumTrackImage(trackLeftResizable, for: .normal)
+        }
 
     @IBAction func showAlert() {
         
@@ -58,11 +72,14 @@ class ViewController: UIViewController {
         
         let message = "The points scored is \(points)"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Close", style: .default, handler: {
+            action in
+            self.startNewRound()
+        })
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        startNewRound()
+
     }
     
     @IBAction func sliderMoved(_ slider: UISlider){
