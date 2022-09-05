@@ -15,6 +15,7 @@
 		5E1A0B2E28C204870084F530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1A0B2C28C204870084F530 /* LaunchScreen.storyboard */; };
 		5E94060628C5E29500E3E1B3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94060528C5E29500E3E1B3 /* AboutViewController.swift */; };
 		5E94060828C5FFBE00E3E1B3 /* AboutAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94060728C5FFBE00E3E1B3 /* AboutAuthorViewController.swift */; };
+		5E94060A28C6639800E3E1B3 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E94060928C6639800E3E1B3 /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5E1A0B2F28C204870084F530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E94060528C5E29500E3E1B3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		5E94060728C5FFBE00E3E1B3 /* AboutAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAuthorViewController.swift; sourceTree = "<group>"; };
+		5E94060928C6639800E3E1B3 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				5E1A0B2728C204860084F530 /* Main.storyboard */,
 				5E1A0B2A28C204870084F530 /* Assets.xcassets */,
 				5E1A0B2C28C204870084F530 /* LaunchScreen.storyboard */,
+				5E94060928C6639800E3E1B3 /* BullsEye.html */,
 				5E1A0B2F28C204870084F530 /* Info.plist */,
 			);
 			path = BullsEye;
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E1A0B2E28C204870084F530 /* LaunchScreen.storyboard in Resources */,
+				5E94060A28C6639800E3E1B3 /* BullsEye.html in Resources */,
 				5E1A0B2B28C204870084F530 /* Assets.xcassets in Resources */,
 				5E1A0B2928C204860084F530 /* Main.storyboard in Resources */,
 			);
