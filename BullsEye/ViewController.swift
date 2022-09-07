@@ -31,47 +31,21 @@ class ViewController: UIViewController {
         
         let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
         
-        let trackLeftImage = UIImage(named: "SliderTackLeft")
+        let trackLeftImage = UIImage(named: "SliderTrackLeft")
         let trackLeftResizable = trackLeftImage?.resizableImage(withCapInsets: insets)
         slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
         
-        let trackRightImage = UIImage(named: "SliderTackRight")
+        let trackRightImage = UIImage(named: "SliderTrackRight")
         let trackRightResizable = trackRightImage?.resizableImage(withCapInsets: insets)
-        slider.setMinimumTrackImage(trackRightResizable, for: .normal)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
         }
 
     @IBAction func showAlert() {
         
-        let difference = abs(target - currentValue)
-        var points = 100 - difference
+        let pointTitle = getPointsAndTitle()
         
-        score += points
-        
-        var title: String
-        
-        if difference == 0 {
-            title = "Perfect!"
-            points += 100
-        }
-        
-        else if difference < 5 {
-            title = "Almost had it"
-            
-            if difference == 1 {
-                points += 50
-            }
-        }
-        
-        else if difference < 10 {
-            title = "Pretty good"
-        }
-        
-        else {
-            title = "Not even close.."
-        }
-        
-        let message = "The points scored is \(points)"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let message = "The points scored is \(pointTitle.0)"
+        let alert = UIAlertController(title: pointTitle.1, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Close", style: .default, handler: {
             action in
             self.startNewRound()
@@ -99,6 +73,45 @@ class ViewController: UIViewController {
         roundNumber = 0
         score = 0
         startNewRound()
+    }
+    
+    func getPointsAndTitle() -> (Int, String) {
+        let difference = findDifference()
+        var points = 100 - difference
+        var title: String
+        
+        updateScore(points)
+        
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        }
+
+        else if difference < 5 {
+            title = "Almost had it"
+
+            if difference == 1 {
+                points += 50
+            }
+        }
+
+        else if difference < 10 {
+            title = "Pretty good"
+        }
+
+        else {
+            title = "Not even close.."
+        }
+        
+        return (points, title)
+    }
+    
+    func findDifference() -> Int {
+        abs(target - currentValue)
+    }
+    
+    func updateScore(_ points: Int){
+        score += points
     }
     
     func updateLabels(){
