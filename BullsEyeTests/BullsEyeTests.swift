@@ -9,11 +9,12 @@ import XCTest
 @testable import BullsEye
 
 class BullsEyeTests: XCTestCase {
-    var sut: ViewController!
+    var sut: GameController!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = ViewController()
+        sut = GameController()
+        sut.startNewGame()
     }
 
     override func tearDownWithError() throws {
@@ -23,55 +24,64 @@ class BullsEyeTests: XCTestCase {
     
     func testShouldUpdateRoundNumberForEachRound(){
         
-        let slider = UISlider()
-        let targetLabel = UILabel()
-        let scoreLabel = UILabel()
-        let roundNumberLabel = UILabel()
-        sut.slider = slider
-        sut.targetLabel = targetLabel
-        sut.scoreLabel = scoreLabel
-        sut.roundNumberLabel = roundNumberLabel
-        
-        let expected = sut.roundNumber + 1
+        let num = sut.game.roundNumber
+        let expected = num + 1
         
         sut.startNewRound()
-        let actual = sut.roundNumber
+        let actual = sut.game.roundNumber
         
-        XCTAssertEqual(actual, expected)
+        XCTAssertTrue(actual == expected)
+        
     }
     
-    func testShouldGetBonus100PointsIfTheCurrentValueIsExactAsTargetValue() {
-        
-        sut.target = 73
-        sut.currentValue = 73
-        
-        let actual = sut.getPoints()
+    func testShouldGetBonus100PointsIfCurrentValueIsExactAsTargetValue(){
+        sut.game.target = 73
+        sut.game.currentValue = 73
         let expected = 200
         
-        XCTAssertEqual(expected, actual)
+        let actual = sut.getPoints()
         
+        XCTAssertTrue(actual == expected)
     }
     
-    func testShouldGetBonus150PointsIfTheCurrentValueIsOneLessThanTargetValue() {
-        
-        sut.target = 37
-        sut.currentValue = 36
-        
-        let actual = sut.getPoints()
+    func testShouldGetBonus50PointsIfCurrentValueIsOneLessThanTargetValue(){
+        sut.game.target = 73
+        sut.game.currentValue = 72
         let expected = 149
         
-        XCTAssertEqual(expected, actual)
+        let actual = sut.getPoints()
         
+        XCTAssertTrue(actual == expected)
     }
     
-    func testShouldSetTitleWhenTheCurrentValueIsExactAsTargetValue() {
+    func testShouldGetPointsIfCurrentValueIsSet(){
+        sut.game.target = 73
+        sut.game.currentValue = 70
+        let expected = 97
         
-        sut.target = 73
-        sut.currentValue = 73
-        
-        let actual = sut.getAlertTitle()
-        let expected = "Perfect!"
+        let actual = sut.getPoints()
         
         XCTAssertEqual(expected, actual)
     }
+    
+    func testShouldGetPerfectTitleIfCurrentValueIsOneLessThanTargetValue() {
+        sut.game.target = 73
+        sut.game.currentValue = 73
+        let expected = "Perfect!"
+        
+        let actual = sut.getAlertTitle()
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
+    func testShouldGetAlmostHadItTitleIfCurrentValueIsOneLessThanTargetValue() {
+        sut.game.target = 73
+        sut.game.currentValue = 72
+        let expected = "Almost had it"
+        
+        let actual = sut.getAlertTitle()
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
 }
