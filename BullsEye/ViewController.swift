@@ -42,10 +42,10 @@ class ViewController: UIViewController {
 
     @IBAction func showAlert() {
         
-        let pointTitle = getPointsAndTitle()
-        
-        let message = "The points scored is \(pointTitle.0)"
-        let alert = UIAlertController(title: pointTitle.1, message: message, preferredStyle: .alert)
+        let points = getPoints()
+        let title = getAlertTitle()
+        let message = "The points scored is \(points)"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Close", style: .default, handler: {
             action in
             self.startNewRound()
@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-
     }
     
     @IBAction func sliderMoved(_ slider: UISlider){
@@ -75,35 +74,40 @@ class ViewController: UIViewController {
         startNewRound()
     }
     
-    func getPointsAndTitle() -> (Int, String) {
-        let difference = findDifference()
-        var points = 100 - difference
+    func getAlertTitle() -> String {
         var title: String
+        let difference = findDifference()
         
-        updateScore(points)
-        
-        if difference == 0 {
-            title = "Perfect!"
-            points += 100
-        }
-
-        else if difference < 5 {
-            title = "Almost had it"
-
-            if difference == 1 {
-                points += 50
-            }
-        }
-
-        else if difference < 10 {
-            title = "Pretty good"
-        }
-
-        else {
-            title = "Not even close.."
+        switch (difference) {
+            case 0:
+                title = "Perfect!"
+            case 1..<5:
+                title = "Almost had it"
+            case 5..<10:
+                title = "Pretty good"
+            default:
+                title = "Not even close.."
         }
         
-        return (points, title)
+        return title
+    }
+    
+    func getPoints() -> Int {
+        let difference = findDifference()
+        var point = 100 - difference
+        
+        updateScore(point)
+        
+        switch (difference) {
+            case 0:
+                point += 100
+            case 1:
+                point += 50
+            default:
+                point += 0
+        }
+        
+        return point
     }
     
     func findDifference() -> Int {
