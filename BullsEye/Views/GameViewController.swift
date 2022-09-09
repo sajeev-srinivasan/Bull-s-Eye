@@ -47,10 +47,10 @@ class ViewController: UIViewController {
     
     private func updateLabelsAndSlider(){
         let values = gameController.updateLabelText()
-        targetLabel.text = String(values["targetLabel"]!)
-        scoreLabel.text = String(values["scoreLabel"]!)
-        roundNumberLabel.text = String(values["roundNumberLabel"]!)
-        slider.value = Float(values["sliderValue"]!)
+        targetLabel.text = String(values[.targetLabel]!)
+        scoreLabel.text = String(values[.scoreLabel]!)
+        roundNumberLabel.text = String(values[.roundNumberLabel]!)
+        slider.value = Float(values[.sliderValue]!)
     }
     
     private func configSlider(){

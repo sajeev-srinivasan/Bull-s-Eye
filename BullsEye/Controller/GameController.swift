@@ -8,6 +8,10 @@ struct GameController {
     var difference: Int = 0
     var points: Int = 0
     
+    enum labelKeys {
+        case targetLabel, scoreLabel, roundNumberLabel, sliderValue
+    }
+    
     mutating func startNewGame() {
         game.roundNumber = 0
         game.score = 0
@@ -60,11 +64,11 @@ struct GameController {
         return point
     }
     
-    func updateLabelText() -> [String:Int] {
-        return ["targetLabel" : game.target,
-                "scoreLabel" : game.score,
-                "roundNumberLabel" : game.roundNumber,
-                "sliderValue" : game.currentValue]
+    func updateLabelText() -> [labelKeys:Int] {
+        return [.targetLabel : game.target,
+                .scoreLabel : game.score,
+                .roundNumberLabel : game.roundNumber,
+                .sliderValue : game.currentValue]
     }
 
     private mutating func findDifference() -> Int {
