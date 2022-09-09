@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="sLQ-g0-R2c">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="sLQ-g0-R2c">
                                 <rect key="frame" x="0.0" y="-4" width="740" height="420"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMQ-tO-fY6">
                                 <rect key="frame" x="89" y="343" width="76" height="35"/>
@@ -137,6 +136,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sLQ-g0-R2c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-4" id="2go-E4-WJw"/>
+                            <constraint firstItem="sLQ-g0-R2c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SEp-tP-kVL"/>
+                            <constraint firstAttribute="bottom" secondItem="sLQ-g0-R2c" secondAttribute="bottom" constant="-2" id="iaZ-md-oxt"/>
+                            <constraint firstAttribute="trailing" secondItem="sLQ-g0-R2c" secondAttribute="trailing" constant="-4" id="mvz-K1-Xrb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="roundNumberLabel" destination="YwY-lu-bX8" id="cZg-aE-4R4"/>
@@ -157,10 +162,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-Ie-qmx">
-                                <rect key="frame" x="-7" y="0.0" width="743" height="420"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-Vp-Xk4">
                                 <rect key="frame" x="335" y="363" width="83" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,9 +198,18 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-Ie-qmx">
+                                <rect key="frame" x="0.0" y="-3" width="740" height="420"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iex-Fk-Q6q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ofA-Ie-qmx" firstAttribute="top" secondItem="5um-CX-hyP" secondAttribute="top" constant="-3" id="KnU-Gl-1tA"/>
+                            <constraint firstAttribute="trailing" secondItem="ofA-Ie-qmx" secondAttribute="trailing" constant="-4" id="KwQ-9R-2bb"/>
+                            <constraint firstItem="ofA-Ie-qmx" firstAttribute="leading" secondItem="iex-Fk-Q6q" secondAttribute="leading" id="XMN-hn-9rE"/>
+                            <constraint firstAttribute="bottom" secondItem="ofA-Ie-qmx" secondAttribute="bottom" constant="-3" id="uxw-rP-iC9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webView" destination="sn2-H5-IRb" id="KuN-xM-ooD"/>
@@ -217,10 +227,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="2bi-M3-Rvp">
-                                <rect key="frame" x="0.0" y="0.0" width="740" height="420"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRe-if-imH">
                                 <rect key="frame" x="329" y="363" width="78" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -234,7 +240,11 @@
                                     <action selector="close" destination="sIn-fO-rAw" eventType="touchUpInside" id="FFN-xU-XRE"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Author: Sajeev" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-H0-ap2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AuthorImage" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-h3-sa4">
+                                <rect key="frame" x="231" y="67" width="275" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Author: Sajeev" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-H0-ap2">
                                 <rect key="frame" x="306" y="251" width="128" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,13 +252,18 @@
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Me" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-h3-sa4">
-                                <rect key="frame" x="231" y="67" width="275" height="156"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="2bi-M3-Rvp">
+                                <rect key="frame" x="0.0" y="-3" width="740" height="420"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d3j-Af-qy0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2bi-M3-Rvp" secondAttribute="bottom" constant="-3" id="2RI-78-gpy"/>
+                            <constraint firstAttribute="trailing" secondItem="2bi-M3-Rvp" secondAttribute="trailing" constant="-4" id="B6U-4U-3zX"/>
+                            <constraint firstItem="2bi-M3-Rvp" firstAttribute="leading" secondItem="d3j-Af-qy0" secondAttribute="leading" id="iER-Ko-NqP"/>
+                            <constraint firstItem="2bi-M3-Rvp" firstAttribute="top" secondItem="rrs-UL-BsO" secondAttribute="top" constant="-3" id="uBR-6p-GdH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXe-oi-jPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,10 +272,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AuthorImage" width="768" height="1024"/>
         <image name="Background" width="568" height="320"/>
         <image name="Button-Normal" width="100" height="37"/>
         <image name="InfoButton" width="10" height="22"/>
-        <image name="Me" width="768" height="1024"/>
         <image name="SmallButton" width="32" height="32"/>
         <image name="StartOverIcon" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">

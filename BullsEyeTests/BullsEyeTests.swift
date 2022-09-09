@@ -84,4 +84,23 @@ class BullsEyeTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
     
+    func testShouldGetPrettyGoodTitleIfDifferenceOfCurrentValueAndTargetValueIsWithin5And10() {
+        sut.game.target = 73
+        sut.game.currentValue = 66
+        let expected = "Pretty good"
+        
+        let actual = sut.getAlertTitle()
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
+    func testShouldGetPrettyGoodTitleIfDifferenceOfCurrentValueAndTargetValueIsMoreThan10() {
+        sut.game.target = 73
+        sut.game.currentValue = 89
+        let expected = "Not even close.."
+        
+        let actual = sut.getAlertTitle()
+        
+        XCTAssertEqual(expected, actual)
+    }
 }

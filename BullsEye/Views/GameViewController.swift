@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     var gameController: GameController = GameController()
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func sliderMoved(_ slider: UISlider){
         let value = slider.value.rounded()
-        gameController.getSliderValue(sliderValue: Int(value))
+        gameController.setSliderValue(sliderValue: Int(value))
     }
     
     @IBAction func startOver(){

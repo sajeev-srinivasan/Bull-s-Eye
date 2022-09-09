@@ -4,10 +4,7 @@ import Foundation
 struct GameController {
     
     var game: BullsEye = BullsEye()
-    
-    var difference: Int = 0
-    var points: Int = 0
-    
+
     enum labelKeys {
         case targetLabel, scoreLabel, roundNumberLabel, sliderValue
     }
@@ -24,7 +21,7 @@ struct GameController {
         game.currentValue = 50
     }
     
-    mutating func getSliderValue(sliderValue: Int){
+    mutating func setSliderValue(sliderValue: Int){
         game.currentValue = sliderValue
     }
     
